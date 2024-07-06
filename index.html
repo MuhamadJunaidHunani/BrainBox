@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Box</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="quizContainer">
+        <div class="quizHd">
+            <h1>Brain Box</h1>
+            <div class="imgContainer">
+                <img src="img/right.png" alt="CORRECT" class="rightImg">
+                <img src="img/wrong.png" alt="WRONG" class="wrongImg">
+            </div>
+        </div>
+        <div class="progressBarContainer">
+            <div class="progressBar"></div>
+        </div>
+        <div class="quizBody">
+            <div class="questionContainer">
+                <p class="question"></p>
+                <div class="optionsContainer">
+                    <label class="option"><input type="radio" class="radioInput" name="option" value="A"><span
+                            class="customRadio"></span><span class="optionText">A. Berlin</span></label>
+                    <label class="option"><input type="radio" class="radioInput" name="option" value="B"><span
+                            class="customRadio"></span><span class="optionText">B. Madrid</span></label>
+                    <label class="option"><input type="radio" class="radioInput" name="option" value="C"><span
+                            class="customRadio"></span><span class="optionText">C. Paris</span></label>
+                    <label class="option"><input type="radio" class="radioInput" name="option" value="D"><span
+                            class="customRadio"></span><span class="optionText">D. Rome</span></label>
+                </div>
+            </div>
+            <div class="submitContainer">
+                <button class="submitButton">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="openIcon">Admin <i class="fa-solid fa-user-tie"></i> <i class="fa-solid fa-share"></i></div>
+    <div class="adminContainer">
+        <div class="closebtn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="passwordFieldConatiner">
+            <label for="password">Admin Password:</label>
+            <input type="password" id="password" name="password" class="passwordInput">
+            <button class="passwordSubmitBtn">Submit</button>
+        </div>
+        <div class="quizchangeform">
+            <input type="text" class="addquesField" placeholder="Question">
+            <div class="addOptionsContainer">
+                <label>Option A: </label>
+                <input type="text" class="addOptionA" placeholder="Option A">
+                <label>Option B: </label>
+                <input type="text" class="addOptionB" placeholder="Option B">
+                <label>Option C: </label>
+                <input type="text" class="addOptionC" placeholder="Option C">
+                <label>Option D: </label>
+                <input type="text" class="addOptionD" placeholder="Option D">
+            </div>
+            <div class="addCorrectOptionContainer">
+                <label>Correct Option: </label>
+                <input type="text" class="addCorrectOption" placeholder="eg:(A)">
+            </div>
+            <button class="AddQuiz">Add Quiz</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.quizContainer {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    padding: 20px;
+}
+
+.progressBarContainer {
+    width: 100%;
+    height: 15px;
+    background-color: #ccc;
+    border-radius: 10px;
+    border: 1px #9d9d9d solid;
+    margin: 20px 0;
+
+}
+
+.progressBar {
+    width: 0%;
+    height: 15px;
+    border-radius: 10px;
+    background-color: #29891d;
+    transition: width 0.5s ease;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    max-width: 100%;
+}
+
+.quizHd {
+    text-align: center;
+    margin-bottom: 20px;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quizHd h1 {
+    font-size: 35px;
+    color: #333;
+}
+
+.imgContainer {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.imgContainer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 70px;
+    height: 70px;
+}
+
+
+.quizBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionContainer {
+    margin-bottom: 20px;
+}
+
+.question {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #45a049;
+}
+
+.radioInput {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.customRadio {
+    position: absolute;
+    border: rgb(68, 66, 66) 1px solid;
+    left: 6px;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.option:hover .customRadio {
+    background-color: #ccc;
+}
+
+.radioInput:checked~.customRadio {
+    background-color: #77e549;
+}
+
+.submitContainer {
+    text-align: center;
+}
+
+.submitButton {
+    background-color: #008cba;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #007bb5;
+}
+
+.resultContainer {
+    width: 160px;
+    height: 160px;
+    border: 2px rgb(13, 217, 84) solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: gray;
+    margin: auto;
+}
+
+.adminContainer {
+    position: fixed;
+    top: 15px;
+    right: 0;
+    height: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+    box-shadow: -6px 5px 22px -2px rgb(189, 188, 189);
+    max-width: 600px;
+    width: 0%;
+    transition: 0.3s ease-in-out;
+}
+
+.openIcon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.closebtn{
+    margin: 10px;
+    margin-bottom: 0 !important;
+    font-size:20px;
+    margin:20px ;
+    cursor: pointer;
+}
+
+.passwordFieldConatiner {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+}
+
+.passwordFieldConatiner label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    width: 100%;
+    }
+
+.passwordInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.passwordInput:focus {
+    border-color: #18a92e;
+    outline: none;
+}
+
+.passwordSubmitBtn{
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px;
+    transition:.3s ease-in-out;
+    background-color: rgb(243, 236, 236);
+}
+.passwordSubmitBtn:hover{
+    cursor: pointer;
+    background-color: white;
+
+}
+.quizchangeform {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: none;
+}
+
+.addquesField,
+.addOptionA,
+.addOptionB,
+.addOptionC,
+.addOptionD,
+.addCorrectOption {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    max-width: 200px;
+}
+.addquesField{
+    max-width: 100%;
+}
+
+.addquesField:focus,
+.addOptionA:focus,
+.addOptionB:focus,
+.addOptionC:focus,
+.addOptionD:focus,
+.addCorrectOption:focus {
+    border-color: #11ec36;
+    outline: none;
+}
+
+.addOptionsContainer,
+.addCorrectOptionContainer {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quizchangeform  label {
+    font-weight: bold;
+}
+
+.AddQuiz{
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px;
+    transition:.3s ease-in-out;
+    border: 1px white solid;
+}
+
+@media (max-width: 600px) {
+    .quizchangeform {
+        padding: 10px;
+    }
+    
+    .addquesField,
+    .addOptionA,
+    .addOptionB,
+    .addOptionC,
+    .addOptionD,
+    .addCorrectOption {
+        padding: 8px;
+    }
+}
