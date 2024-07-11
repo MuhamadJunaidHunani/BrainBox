@@ -8,6 +8,23 @@ const userData = JSON.parse(localStorage.getItem("userData")) || [
 
 let currentLoggedIndex = JSON.parse(localStorage.getItem("currentLoggedIndex")) || false;
 
+function ShowToastMsg(ToastText){
+Toastify({
+    text: ToastText,
+    duration: 1400,
+    destination: "https://github.com/apvarun/toastify-js",
+    newWindow: true,
+    close: true,
+    gravity: "top",
+    position: "left",
+    stopOnFocus: true,
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+    onClick: function(){}
+  }).showToast();
+
+}
 
 if (window.location.pathname === "/login.html") {
     document.querySelector('.loginForm').addEventListener('submit', function (event) {
@@ -20,8 +37,10 @@ if (window.location.pathname === "/login.html") {
             if (userData[i].username === username && userData[i].password === password) {
                 currentLoggedIndex = i;
                 localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
-                alert('Login successful!');
-                // window.location.pathname = '/';
+                ShowToastMsg('Login successful!');
+                setTimeout(()=>{
+                    window.location.pathname = '/';
+                },1500)
                 return;
             }
             else {
@@ -56,10 +75,13 @@ if (window.location.pathname === "/signup.html") {
                 password: password,
                 result: false,
             });
+            ShowToastMsg("SignUp Successfully")
             currentLoggedIndex = userData.length - 1;
             localStorage.setItem("userData", JSON.stringify(userData));
             localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
-            window.location.pathname = "/";
+            setTimeout(()=>{
+                window.location.pathname = '/';
+            },1500)
         }
     });
 }
