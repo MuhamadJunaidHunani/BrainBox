@@ -81,6 +81,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
     padding: 20px;
+    position: relative;
 }
 
 .progressBarContainer {
@@ -100,8 +101,7 @@ body {
     background-color: #29891d;
     transition: width 0.5s ease;
     text-align: center;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
     max-width: 100%;
 }
 
@@ -228,25 +228,29 @@ body {
     margin: auto;
 }
 
-.adminContainer {
-    position: fixed;
-    top: 15px;
+.sideBarContainer {
+    position: absolute;
+    top: 0;
     right: 0;
     height: 100%;
     overflow: auto;
     background-color: #ffffff;
     box-shadow: -6px 5px 22px -2px rgb(189, 188, 189);
-    max-width: 600px;
+    max-width: 400px;
     width: 0%;
     transition: 0.3s ease-in-out;
+    z-index: 3;
 }
 
 .openIcon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 15px;
+   align-items: flex-end;
+   display: flex;
+   justify-content: flex-end;
+   font-size: 20px;
+}
+.openIcon i:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .closebtn {
@@ -373,4 +377,17 @@ body {
     .addCorrectOption {
         padding: 8px;
     }
+}
+.userInfoContainer{
+    margin: 10px;
+}
+
+.usernameHd{
+    font-size: 20px;
+    color: gray;
+}
+
+.deleteAcc ,.logOutBtn{
+    color: red;
+    cursor: pointer;
 }

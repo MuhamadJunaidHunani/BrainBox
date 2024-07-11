@@ -8,68 +8,76 @@ const userData = JSON.parse(localStorage.getItem("userData")) || [
 
 let currentLoggedIndex = JSON.parse(localStorage.getItem("currentLoggedIndex")) || false;
 
-function ShowToastMsg(ToastText){
-Toastify({
-    text: ToastText,
-    duration: 1400,
-    destination: "https://github.com/apvarun/toastify-js",
-    newWindow: true,
-    close: true,
-    gravity: "top",
-    position: "left",
-    stopOnFocus: true,
-    style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
-    },
-    onClick: function(){}
-  }).showToast();
+function ShowToastMsg(ToastText) {
+    Toastify({
+        text: ToastText,
+        duration: 1400,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "left",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function () { }
+    }).showToast();
 
 }
 
 if (window.location.pathname === "/login.html") {
     document.querySelector('.loginForm').addEventListener('submit', function (event) {
         event.preventDefault();
-
         const username = document.querySelector('.loginUsername').value;
         const password = document.querySelector('.loginPassword').value;
+        let userFound = false;
+
 
         for (var i = 0; i < userData.length; i++) {
             if (userData[i].username === username && userData[i].password === password) {
+                userFound = true;
                 currentLoggedIndex = i;
                 localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
-                ShowToastMsg('Login successful!');
-                setTimeout(()=>{
-                    window.location.pathname = '/';
-                },1500)
-                return;
-            }
-            else {
-                alert('Invalid username or password!');
-                return;
             }
         }
 
+        if (userFound) {
+            ShowToastMsg('Login successful!');
+            setTimeout(() => {
+                window.location.pathname = '/';
+            }, 1500)
+        }
 
+        else {
+            ShowToastMsg('Invalid username or password!');
+        }
     });
 }
 
 if (window.location.pathname === "/signup.html") {
     document.querySelector('.SignupSubmit').addEventListener('click', function (event) {
         event.preventDefault();
-
         const username = document.querySelector('.signupUsername').value;
         const password = document.querySelector('.signupPassword').value;
         const confirmPassword = document.querySelector('.signupConfirmPassword').value;
 
+        for (var j = 0; j < userData.length; j++) {
+            if (userData[j].username === username && userData[j].password === password) {
+                ShowToastMsg('User already exists!');
+                return;
+            }
+        }
 
         if (password.length < 6) {
-            alert('Password must be at least 6 characters long.');
+            ShowToastMsg('Password must be at least 6 characters long.');
             return;
-        } else if (password !== confirmPassword) {
-            alert('Passwords do not match.');
+        }
+         else if (password !== confirmPassword) {
+            ShowToastMsg('Passwords do not match.');
             return;
-        } else {
-
+        }
+         else {
             userData.push({
                 username: username,
                 password: password,
@@ -79,9 +87,9 @@ if (window.location.pathname === "/signup.html") {
             currentLoggedIndex = userData.length - 1;
             localStorage.setItem("userData", JSON.stringify(userData));
             localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
-            setTimeout(()=>{
+            setTimeout(() => {
                 window.location.pathname = '/';
-            },1500)
+            }, 1500)
         }
     });
 }
@@ -91,7 +99,6 @@ if (window.location.pathname === "/") {
         window.location.pathname = "/signup.html";
     }
     else {
-
         const questionsData = JSON.parse(localStorage.getItem("questionsDataStorage")) || [
             {
                 question: "What is the capital of France?",
@@ -128,16 +135,20 @@ if (window.location.pathname === "/") {
         const progressBar = document.querySelector(".progressBar");
         const quizBody = document.querySelector(".quizBody");
         const quizContainer = document.querySelector(".quizContainer");
-        let wrongImg = document.querySelector(".wrongImg");
-        let rightImg = document.querySelector(".rightImg");
         const openIcon = document.querySelector(".openIcon");
-        const adminContainer = document.querySelector(".adminContainer");
+        const sideBarContainer = document.querySelector(".sideBarContainer");
         const closebtn = document.querySelector(".closebtn");
         const passwordSubmitBtn = document.querySelector(".passwordSubmitBtn");
         const AddQuizBtn = document.querySelector(".AddQuiz");
-
+        const logOutBtn = document.querySelector(".logOutBtn");
+        const deleteAccBtn = document.querySelector(".deleteAcc");
+        let wrongImg = document.querySelector(".wrongImg");
+        let rightImg = document.querySelector(".rightImg");
         let progressBarwidth = 0;
         let score = 0;
+
+        document.querySelector(".username").innerHTML = userData[currentLoggedIndex].username;
+
 
         window.onload = quesFunc();
         submitButton.addEventListener("click", handleEventOnSubmit);
@@ -163,7 +174,6 @@ if (window.location.pathname === "/") {
             usedQuestions.push(randomIndex);
             return randomIndex;
         }
-
 
         function quesFunc() {
             let questionIndex = getRandomQuestion()
@@ -214,11 +224,24 @@ if (window.location.pathname === "/") {
             }
 
         }
+        
         openIcon.addEventListener("click", () => {
-            adminContainer.style.width = 100 + "%"
+            sideBarContainer.style.width = 100 + "%"
         })
         closebtn.addEventListener("click", () => {
-            adminContainer.style.width = 0 + "%";
+            sideBarContainer.style.width = 0 + "%";
+        })
+        logOutBtn.addEventListener("click", () => {
+            currentLoggedIndex = false;
+            localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
+            window.location.pathname = "/login.html";
+        })
+        deleteAccBtn.addEventListener("click", () => {
+            userData.splice(currentLoggedIndex, 1);
+            currentLoggedIndex = false;
+            localStorage.setItem("userData", JSON.stringify(userData));
+            localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
+            window.location.pathname = "/signup.html";
         })
 
         passwordSubmitBtn.addEventListener("click", () => {
