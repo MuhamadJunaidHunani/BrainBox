@@ -65,14 +65,15 @@ body {
     background-color: #45a049;
 }
 
-.switchPara{
+.switchPara {
     color: #6d6565;
     font-size: 14px;
     text-align: center;
     margin-top: 20px;
 }
-.switchLink{
-    color:#45a049;
+
+.switchLink {
+    color: #45a049;
 }
 
 .quizContainer {
@@ -243,12 +244,13 @@ body {
 }
 
 .openIcon {
-   align-items: flex-end;
-   display: flex;
-   justify-content: flex-end;
-   font-size: 20px;
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
 }
-.openIcon i:hover{
+
+.openIcon i:hover {
     cursor: pointer;
     opacity: 0.8;
 }
@@ -261,48 +263,7 @@ body {
     cursor: pointer;
 }
 
-.passwordFieldConatiner {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-}
-
-.passwordFieldConatiner label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    width: 100%;
-}
-
-.passwordInput {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.passwordInput:focus {
-    border-color: #18a92e;
-    outline: none;
-}
-
-.passwordSubmitBtn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    outline: none;
-    margin: 10px;
-    transition: .3s ease-in-out;
-    background-color: rgb(243, 236, 236);
-}
-
-.passwordSubmitBtn:hover {
-    cursor: pointer;
-    background-color: white;
-
-}
-
-.quizchangeform {
+.quizAddform {
     width: 100%;
     max-width: 400px;
     padding: 20px;
@@ -310,7 +271,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    display: none;
 }
 
 .addquesField,
@@ -349,23 +309,14 @@ body {
     flex-direction: column;
 }
 
-.quizchangeform label {
+.quizAddform label {
     font-weight: bold;
 }
 
-.AddQuiz {
-    padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    outline: none;
-    margin: 10px;
-    transition: .3s ease-in-out;
-    border: 1px white solid;
-}
+
 
 @media (max-width: 600px) {
-    .quizchangeform {
+    .quizAddform {
         padding: 10px;
     }
 
@@ -378,16 +329,145 @@ body {
         padding: 8px;
     }
 }
-.userInfoContainer{
+
+.userInfoContainer {
     margin: 10px;
 }
 
-.usernameHd{
+.usernameHd {
     font-size: 20px;
     color: gray;
 }
 
-.deleteAcc ,.logOutBtn{
+.deleteAcc,
+.logOutBtn {
     color: red;
     cursor: pointer;
+}
+
+.adminBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    margin: 20px;
+    max-width: 500px;
+}
+
+.btn {
+    padding: 15px 0px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addQuiz {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.addQuiz:hover {
+    background-color: #38913c;
+}
+
+.deleteQuiz {
+    background-color: #f44336;
+    color: white;
+}
+
+.deleteQuiz:hover {
+    background-color: #da190b;
+}
+
+.editQuiz {
+    background-color: #008CBA;
+    color: white;
+}
+
+.editQuiz:hover {
+    background-color: #0276ac;
+}
+
+.previewQuiz {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.previewQuiz:hover {
+    background-color: #d2d0d0;
+}
+
+.editContainer,
+.previewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px;
+}
+
+.editContainer .editSection {
+    display: none;
+}
+
+.editContainer #questionsContainer,
+.previewContainer #questionsContainer {
+    padding: 0;
+}
+
+.editContainer .questionsList,
+.previewContainer .questionsList,
+.editContainer .editSection {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.editContainer ul,
+.previewContainer ul {
+    list-style-type: none;
+}
+
+.editContainer li,
+.previewContainer li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.editContainer li:hover,
+.previewContainer li:hover {
+    background-color: #ddd;
+}
+
+.editContainer label {
+    display: block;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.editContainer input {
+    width: 89%;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }

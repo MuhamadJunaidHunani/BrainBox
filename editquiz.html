@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="editContainer">
+        <div class="questionsList">
+            <ul id="questionsContainer"></ul>
+        </div>
+        <div class="editSection" id="editSection">
+            <form id="editForm">
+                <label for="questionInput">Question:</label>
+                <input type="text" id="questionInput" name="questionInput">
+
+                <label for="optionA">Option A:</label>
+                <input type="text" id="optionA" name="optionA">
+
+                <label for="optionB">Option B:</label>
+                <input type="text" id="optionB" name="optionB">
+
+                <label for="optionC">Option C:</label>
+                <input type="text" id="optionC" name="optionC">
+
+                <label for="optionD">Option D:</label>
+                <input type="text" id="optionD" name="optionD">
+
+                <label for="correctOption">Correct Option:</label>
+                <input type="text" id="correctOption" name="correctOption">
+
+                <button class="editQuiz btn">Edit</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
