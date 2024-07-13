@@ -406,7 +406,8 @@ body {
 }
 
 .editContainer,
-.previewContainer {
+.previewContainer,
+.removeContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -425,12 +426,14 @@ body {
 }
 
 .editContainer #questionsContainer,
+.removeContainer #questionsContainer,
 .previewContainer #questionsContainer {
     padding: 0;
 }
 
 .editContainer .questionsList,
 .previewContainer .questionsList,
+.removeContainer .questionsList,
 .editContainer .editSection {
     width: 100%;
     max-height: 500px;
@@ -439,11 +442,13 @@ body {
 }
 
 .editContainer ul,
-.previewContainer ul {
+.previewContainer ul,
+.removeContainer ul {
     list-style-type: none;
 }
 
 .editContainer li,
+.removeContainer li,
 .previewContainer li {
     margin-bottom: 10px;
     padding: 10px;
@@ -454,6 +459,7 @@ body {
 }
 
 .editContainer li:hover,
+.removeContainer li:hover,
 .previewContainer li:hover {
     background-color: #ddd;
 }
@@ -471,3 +477,5 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+

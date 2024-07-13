@@ -364,3 +364,28 @@ if (window.location.pathname === "/previewquiz.html") {
         });
     });
 }
+
+if (window.location.pathname === "/removequiz.html") {
+
+    setDeleteItem()
+    function setDeleteItem() {
+        const questionsContainer = document.getElementById("questionsContainer");
+        questionsContainer.innerHTML = "";
+        questionsData.forEach((question, index) => {
+            const questionItem = document.createElement("li");
+            questionItem.innerText = question.question;
+            questionItem.onclick = () => removeQuestion(index);
+            questionsContainer.appendChild(questionItem);
+        });
+    };
+
+    function removeQuestion(index) {
+        let confirmDelete = confirm("Are You Wanted To Delete This");
+        if (confirmDelete) {
+            questionsData.splice(index, 1);
+            localStorage.setItem("questionsDataStorage", JSON.stringify(questionsData));
+            setDeleteItem()
+            ShowToastMsg("Question removed successfully!");
+        }
+    }
+}
