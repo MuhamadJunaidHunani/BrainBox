@@ -89,6 +89,11 @@ if (window.location.pathname === "/login.html") {
             ShowToastMsg('Invalid email or password!');
         }
     });
+    document.querySelector(".signupSwitchLink").addEventListener("click",()=>{
+        window.location.pathname = '/signup.html';
+    })
+    
+
 }
 
 if (window.location.pathname === "/signup.html") {
@@ -124,12 +129,14 @@ if (window.location.pathname === "/signup.html") {
             currentLoggedIndex = userData.length - 1;
             localStorage.setItem("userData", JSON.stringify(userData));
             localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
-            debugger
             setTimeout(() => {
                 window.location.pathname = '/';
             }, 1100)
         }
     });
+    document.querySelector(".loginSwitchLink").addEventListener("click",()=>{
+        window.location.pathname = '/login.html';
+    })
 }
 
 if (window.location.pathname === "/") {
