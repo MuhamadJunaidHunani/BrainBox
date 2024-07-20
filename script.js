@@ -124,6 +124,7 @@ if (window.location.pathname === "/signup.html") {
             currentLoggedIndex = userData.length - 1;
             localStorage.setItem("userData", JSON.stringify(userData));
             localStorage.setItem("currentLoggedIndex", JSON.stringify(currentLoggedIndex));
+            debugger
             setTimeout(() => {
                 window.location.pathname = '/';
             }, 1100)
